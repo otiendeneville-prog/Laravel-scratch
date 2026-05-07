@@ -1,3 +1,7 @@
+@props([
+    'title' => 'laracast'
+])
+
 <!DOCTYPE html>
 <html lang="en">
 

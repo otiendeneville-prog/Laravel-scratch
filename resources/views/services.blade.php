@@ -1,9 +1,4 @@
-
-
-
-
-
-    <x-layout title="Services">
+    <x-layout>
         
         <div>
             <h1>Services Page</h1>
