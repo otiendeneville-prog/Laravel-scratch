@@ -2,9 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::view('/','welcome',[
-    'greeting' => 'Hello',
-    'person' => request('person')
-    
-]);
+Route::get('/',function(){
+   return view('ideas');
+});
+Route::post('/ideas',function(){
+   dd('ideas');
+});
+
+
 
