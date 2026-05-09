@@ -13,6 +13,11 @@ Route::get('/',function(){
 Route::post('/ideas',function(){
   $idea = request('idea');
   session()->push('ideas' ,$idea);
+  return redirect('/');
 });
 
-return redirect('/');
+
+Route::get('/delete-ideas',function(){
+  session()->forget('ideas');
+  return redirect('/');
+});
