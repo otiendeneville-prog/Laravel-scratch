@@ -3,11 +3,16 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',function(){
-   return view('ideas');
+   $ideas = session()->get('ideas', []);
+  $dd = ($ideas);
+
+  return view('ideas',[
+    'ideas'=>$ideas
+  ]);
 });
 Route::post('/ideas',function(){
-   dd('ideas');
+  $idea = request('idea');
+  session()->push('ideas' ,$idea);
 });
 
-
-
+return redirect('/');
