@@ -6,7 +6,7 @@ Route::get('/',function(){
   $idea = illuminate\support\Facades\DB::table('ideas')->get();
   //  $ideas = session()->get('ideas', []);
   // $dd = ($ideas);
-
+dd($ideas);
   return view('ideas',[
     'ideas'=>$ideas,
   ]);
