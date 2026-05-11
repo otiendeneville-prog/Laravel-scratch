@@ -14,14 +14,8 @@ dd($ideas);
 });
 Route::post('/ideas',function(){
   $idea = request('idea');
-  // session()->push('ideas' ,$idea);
-  // return redirect('/');
-   DB::table('idea')->insert([
-        'content' => $idea, // Make sure your column name matches!
-        'created_at' => now(),
-        'updated_at' => now(),
-    ]);
-
+  session()->push('ideas' ,$idea);
+  return redirect('/');
 });
 
 
