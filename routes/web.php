@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/',function(){
-  $ideas = DB::table('idea')->get();
+Route::get('/ideas',function(){
+  $ideas =idea::all();
   
   //  $ideas = session()->get('ideas', []);
   // $dd = ($ideas);
@@ -20,7 +20,7 @@ Route::post('/ideas',function(){
 
 
 Route::get('/delete-ideas',function(){
-  session()->forget('ideas');
+  idea :: truncate();
   return redirect('/');
 });
 
