@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',function(){
-  $idea = DB::table('ideas')->get();
+  $ideas = DB::table('idea')->get();
   //  $ideas = session()->get('ideas', []);
   // $dd = ($ideas);
-dd($idea);
+dd($ideas);
   return view('ideas',[
     'ideas'=>$ideas,
   ]);
