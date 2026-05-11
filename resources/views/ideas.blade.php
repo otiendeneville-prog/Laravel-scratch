@@ -14,11 +14,12 @@
       <button type="submit" class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Save</button>
    </div>
    <div class="mt-6 text-white">
+      @if(count($ideas))
       <h2 class="font-bold">Ideas in podcast!</h2>
       @foreach($ideas as $idea)
          <li class="text-small">{{$idea}}</li>
       @endforeach
-      
+      @endif
    </div>
   </form>
 

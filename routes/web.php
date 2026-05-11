@@ -21,3 +21,7 @@ Route::get('/delete-ideas',function(){
   session()->forget('ideas');
   return redirect('/');
 });
+
+
+
+
