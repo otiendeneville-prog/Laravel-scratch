@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Idea;
 Route::get('/ideas',function(){
-  // $ideas =DB::table('ideas')->get();
+  $ideas =DB::table('ideas')->get();
 
   $ideas = idea::all();
   return $ideas;
@@ -25,6 +25,9 @@ Route::get('/delete-ideas',function(){
  session()->forget('ideas');
   return redirect('/');
 });
+
+
+
 
 
 
