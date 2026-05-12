@@ -8,3 +8,7 @@ class idea extends Model
 {
     //
 }
+
+
+
+
