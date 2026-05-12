@@ -1,9 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use IIluminat\Support\Facades\DB;
+use App\Models\Idea;
 Route::get('/ideas',function(){
-  $ideas =DB::table('ideas')->get();
+  // $ideas =DB::table('ideas')->get();
+
+  $ideas = idea::find(1);
+  return $ideas;
   
 dd($ideas);
   return view('ideas',[
