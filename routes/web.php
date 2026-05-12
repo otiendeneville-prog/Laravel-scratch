@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 use IIluminat\Support\Facades\DB;
 Route::get('/ideas',function(){
   $ideas =DB::table('ideas')->get();
+
+  $ideas = idea::find(1);
   
-dd($ideas);
+// dd($ideas);
   return view('ideas',[
     'ideas'=>$ideas,
   ]);
