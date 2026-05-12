@@ -1,12 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use IIluminat\Support\Facades\DB;
 Route::get('/ideas',function(){
-  $ideas =idea::all();
+  $ideas =DB::table('ideas')->get();
   
-  //  $ideas = session()->get('ideas', []);
-  // $dd = ($ideas);
 dd($ideas);
   return view('ideas',[
     'ideas'=>$ideas,
@@ -14,13 +12,14 @@ dd($ideas);
 });
 Route::post('/ideas',function(){
   $idea = request('idea');
+
   session()->push('ideas' ,$idea);
   return redirect('/');
 });
 
 
 Route::get('/delete-ideas',function(){
-  idea :: truncate();
+ session()->forget('ideas');
   return redirect('/');
 });
 
