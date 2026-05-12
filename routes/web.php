@@ -14,12 +14,18 @@ use App\idea;
  Route::get('/ideas/{id}', function(){
         $ideas = idea::all();
 
-        
+
         return view('ideas',[
               'ideas' => $ideas,
         ]);
       
- })
+ });
+
+ Route::post('/ideas', function(){
+       Ideas:create([
+         'description'=> request('ideas')
+       ]
+ );
 
 
 
