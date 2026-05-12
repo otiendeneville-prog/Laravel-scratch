@@ -8,7 +8,7 @@ Route::get('/ideas',function(){
   $ideas = idea::find(1);
   return $ideas;
   
-// dd($ideas);
+dd($ideas);
   return view('ideas',[
     'ideas'=>$ideas,
   ]);
