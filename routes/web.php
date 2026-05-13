@@ -10,8 +10,8 @@ Route::get('/', function () {
 
 Route::get('/ideas', function () {
     // $ideas = Idea::all();
-    $ideas =Idea::find(1);
-    dd($ideas);
+    $ideas =Idea::all();
+   
     return view('ideas', [
         'ideas' => $ideas,
     ]);
