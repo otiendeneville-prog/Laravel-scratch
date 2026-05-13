@@ -1,71 +1,44 @@
- <?php
+
+<?php
 
 use App\Models\Idea;
+use Illuminate\Support\Facades\Route;
 
- use Illuminate\Support\Facades\Route;
+// 1. Root URL Fallback (Prevents 404 if you visit just http://127.0.0.1:8000)
+Route::get('/', function () {
+    return redirect('/ideas');
+});
 
+// 2. Display all ideas
+Route::get('/ideas', function () {
+    $ideas = Idea::all();
+    
+    return view('ideas', [
+        'ideas' => $ideas,
+    ]);
+});
 
- Route::get('/ideas', function(){
-        $ideas = Idea::all();
-        return view('ideas',[
-              'ideas' => $ideas,
-        ]);
-      
- });
- Route::get('/ideas/{id}', function($Id){
-        $ideas = Idea::all();
+// 3. Display a single specific idea (Fixed matching $id parameter variable)
+Route::get('/ideas/{id}', function ($id) {
+    // Looks for the specific ID or safely triggers a 404 if not found
+    $idea = Idea::findOrFail($id);
 
+    return view('ideas', [
+        'idea' => $idea,
+    ]);
+});
 
-        return view('ideas',[
-              'ideas' => $ideas,
-        ]);
-      
- });
+// 4. Handle form submission to create an idea
+Route::post('/ideas', function () {
+    // Validates incoming input field named 'ideas'
+    request()->validate([
+        'ideas' => 'required'
+    ]);
 
- Route::post('/ideas', function(){
-       Idea::create([
-         'description'=> request('ideas')
-       ]);
- });
- 
+    Idea::create([
+        'description' => request('ideas')
+    ]);
 
-
-
-
-//  <?php
-
-// use App\Models\Idea;
-// use Illuminate\Support\Facades\Route;
-
-// // 1. Display all ideas
-// Route::get('/ideas', function () {
-//     $ideas = Idea::all();
-//     return view('ideas', [
-//         'ideas' => $ideas,
-//     ]);
-// });
-
-// // 2. Display a single specific idea
-// Route::get('/ideas/{id}', function ($id) {
-//     // Find the specific idea by its ID, or throw a clean 404 if it doesn't exist
-//     $idea = Idea::findOrFail($id);
-
-//     return view('idea-single', [
-//         'idea' => $idea,
-//     ]);
-// });
-
-// // 3. Handle the form submission to create an idea
-// Route::post('/ideas', function () {
-//     // Validate the incoming request data first
-//     request()->validate([
-//         'ideas' => 'required'
-//     ]);
-
-//     Idea::create([
-//         'description' => request('ideas')
-//     ]);
-
-//     // Redirect back to the list page so the user sees the new entry
-//     return redirect('/ideas');
-// });
+    // Redirects back to the index view so the new entry displays immediately
+    return redirect('/ideas');
+});
