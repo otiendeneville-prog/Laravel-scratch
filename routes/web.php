@@ -11,6 +11,7 @@ Route::get('/', function () {
 Route::get('/ideas', function () {
     // $ideas = Idea::all();
     $ideas =Idea::find(1);
+    return $idea;
     return view('ideas', [
         'ideas' => $ideas,
     ]);
