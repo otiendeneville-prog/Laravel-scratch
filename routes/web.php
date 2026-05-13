@@ -7,14 +7,14 @@ use App\Models\Idea;
 
 
  Route::get('/ideas', function(){
-        $ideas = idea::all();
+        $ideas = Idea::all();
         return view('ideas',[
               'ideas' => $ideas,
         ]);
       
  });
  Route::get('/ideas/{id}', function(){
-        $ideas = idea::all();
+        $ideas = Idea::all();
 
 
         return view('ideas',[
@@ -24,7 +24,7 @@ use App\Models\Idea;
  });
 
  Route::post('/ideas', function(){
-       Idea:create([
+       Idea::create([
          'description'=> request('ideas')
        ]);
  });
