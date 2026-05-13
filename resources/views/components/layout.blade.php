@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body class="bg-gray-700 p-6 max-w-xl max-auto">
+<body class="bg-gray-700 p-7 max-w-xl max-auto">
     <main>
         {{ $slot }}
     </main>
