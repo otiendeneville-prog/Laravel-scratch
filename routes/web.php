@@ -9,7 +9,6 @@ Route::get('/', function () {
 });
 
 Route::get('/ideas', function () {
-    // $ideas = Idea::all();
     $ideas =Idea::all();
    
     return view('ideas', [
@@ -29,6 +28,8 @@ Route::post('/ideas', function () {
     request()->validate([
         'ideas' => 'required'
     ]);
+
+    Idea::truncate();
 
     Idea::create([
         'description' => request('ideas')
