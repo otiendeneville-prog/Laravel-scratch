@@ -23,6 +23,8 @@
    </div>
   </form>
 
+</x-layout>
+
 
   
 
