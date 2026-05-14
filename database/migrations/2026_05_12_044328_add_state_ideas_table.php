@@ -14,16 +14,13 @@ return new class extends Migration
         $table->string('state')->default('pending');
         $table ->timestamps();
         $table->string('state')->nullable();
-
         });
     }
-
-
     public function down(): void
     {
          Schema::dropIfExist('Idea');
     }
-};
+}
 
 
 
