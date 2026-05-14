@@ -34,7 +34,7 @@ Route::post('/ideas', function () {
         'ideas' => 'required'
     ]);
 
-    // Idea::truncate();
+    Idea::truncate();
 
     Idea::create([
         'description' => request('ideas')
