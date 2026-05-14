@@ -17,6 +17,7 @@ Route::get('/ideas', function () {
 });
 
 Route::get('/ideas/{idea}', function (Idea $idea) {
+    dd($idea);
       return view('ideas', [
         'idea' => $idea,
     ]);
