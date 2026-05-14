@@ -13,8 +13,6 @@ return new class extends Migration
         $table->id();
         $table->string('state')->default('pending');
         $table ->timestamps();
-        $table->string('description');
-        $table ->string('conlumn');
         });
     }
 
