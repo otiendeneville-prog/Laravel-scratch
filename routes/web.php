@@ -43,7 +43,7 @@ Route::patch('/ideas/{idea}', function (Idea $idea) {
     return redirect("/ideas/{$idea->id}");
 });
 
-//delete an idea moved outside the post;
+//delete an idea moved outside the
 Route::delete('/ideas/{idea}', function (idea $idea) {
     $idea->delete();
     return redirect ('/ideas');
