@@ -43,21 +43,10 @@ Route::patch('/ideas/{idea}', function (Idea $idea) {
     return redirect("/ideas/{$idea->id}");
 });
 
-Route::post('/ideas', function () {
-    request()->validate([
-        'ideas' => 'required'
-    ]);
-
+//delete an idea moved outside the post;
 Route::delete('/ideas/{idea}', function (idea $idea) {
     $idea->delete();
     return redirect ('/ideas');
 });
 
-    Idea::truncate();
-
-    Idea::create([
-        'description' => request('ideas')
-    ]);
-
-    return redirect('/ideas');
-});
+   
