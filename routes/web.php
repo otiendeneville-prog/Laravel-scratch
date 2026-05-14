@@ -24,7 +24,7 @@ Route::get('/ideas/{idea}', function (Idea $idea) {
 });
 Route::patch('/ideas/{idea}', function (Idea $idea) {
     $idea->update([
-        $idea => request('description'),
+        $idea => request('idea'),
     ]);
     return redirect("/ideas/{$idea->id}");
 });
@@ -34,7 +34,7 @@ Route::post('/ideas', function () {
         'ideas' => 'required'
     ]);
 
-    Idea::truncate();
+    // Idea::truncate();
 
     Idea::create([
         'description' => request('ideas')
