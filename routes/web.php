@@ -26,11 +26,16 @@ Route::post('/ideas', function(){
     request()->validate([
         'ideas'=>'required'
     ]);
-});
-Idea::create([
+    //to prevent sql not null error;
+    Idea::create([
     'description'=>request('ideas'),
     'state'=>'pending'
 ]);
+return redirect ('ideas');
+});
+
+
+//update and existing idea;
 Route::patch('/ideas/{idea}', function (Idea $idea) {
     $idea->update([
         $idea => request('idea'),
