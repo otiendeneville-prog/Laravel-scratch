@@ -11,7 +11,7 @@ return new class extends Migration
     {
         Schema::create('ideas',function(Blueprint $table){
         $table->id();
-        $table->string('state');
+        $table->string('state')->default('pending');
         $table ->timestamps();
         $table->string('description');
         $table ->string('conlumn');
