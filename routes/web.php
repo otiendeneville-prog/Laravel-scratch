@@ -28,6 +28,7 @@ Route::patch('/ideas/{idea}', function (Idea $idea) {
         'idea' => $idea,
     ]);
 });
+
 Route::post('/ideas', function () {
     request()->validate([
         'ideas' => 'required'
