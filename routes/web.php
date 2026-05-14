@@ -23,10 +23,10 @@ Route::get('/ideas/{idea}', function (Idea $idea) {
     ]);
 });
 Route::patch('/ideas/{idea}', function (Idea $idea) {
-    dd($idea);
-      return view('ideas', [
-        'idea' => $idea,
+    $idea->update([
+        description => request('description'),
     ]);
+    return redirect("/ideas/"{$idea->id})
 });
 
 Route::post('/ideas', function () {
