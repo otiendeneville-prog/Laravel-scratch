@@ -5,7 +5,7 @@
     <form method="POST" action="/ideas">
        @csrf
        <div class="col-span-full">
-          <label for="ideas" class="block text-sm/6 font-medium text-white">New Idea</label>
+          <label for="ideas" class="block text-sm/6 font-medium text-white">Create a new blade:</label>
           <div class="mt-2">
              <textarea id="ideas" name="ideas" cols="30" rows="3" class="block w-full rounded-md bg-white/5 px-3 text-white" placeholder="Type your idea here..."></textarea>
           </div>
