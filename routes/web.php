@@ -22,6 +22,12 @@ Route::get('/ideas/{idea}', function (Idea $idea) {
         'idea' => $idea,
     ]);
 });
+Route::get('/ideas/create', function (Idea $idea) {
+    $idea->update([
+        $idea => request('idea'),
+    ]);
+    return redirect("/ideas/{$idea->id}");
+});
 Route::patch('/ideas/{idea}', function (Idea $idea) {
     $idea->update([
         $idea => request('idea'),
