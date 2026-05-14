@@ -22,17 +22,11 @@ Route::get('/ideas/{idea}', function (Idea $idea) {
         'idea' => $idea,
     ]);
 });
-Route::get('/ideas/create', function (Idea $idea) {
-    // $idea->update([
-    //     $idea => request('idea'),
-    // ]);
-    // return redirect("/ideas/{$idea->id}");
 
-    return view('ideas.edit',[
-           'idea'=> $idea,
-    ]);
-   
-});
+Idea::create([
+    'description'=>request('ideas'),
+    'state'=>'pending'
+]);
 Route::patch('/ideas/{idea}', function (Idea $idea) {
     $idea->update([
         $idea => request('idea'),
