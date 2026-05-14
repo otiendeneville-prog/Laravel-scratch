@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class idea extends Model
 {
         use HasFactory;
-    protected $fillable = ['description'];
+    protected $fillable = ['description','state'];
 
 }
 
