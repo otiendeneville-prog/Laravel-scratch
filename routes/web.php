@@ -16,13 +16,17 @@ Route::get('/ideas', function () {
     ]);
 });
 //display a single idea;
-
 Route::get('/ideas/{idea}', function (Idea $idea) {
       return view('ideas', [
         'idea' => $idea,
     ]);
 });
-
+//storing a new idea;
+Route::post('/ideas', function(){
+    request()->validate([
+        'ideas'=>'required'
+    ]);
+});
 Idea::create([
     'description'=>request('ideas'),
     'state'=>'pending'
