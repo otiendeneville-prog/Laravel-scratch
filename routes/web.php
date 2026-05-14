@@ -22,7 +22,12 @@ Route::get('/ideas/{idea}', function (Idea $idea) {
         'idea' => $idea,
     ]);
 });
-
+Route::patch('/ideas/{idea}', function (Idea $idea) {
+    dd($idea);
+      return view('ideas', [
+        'idea' => $idea,
+    ]);
+});
 Route::post('/ideas', function () {
     request()->validate([
         'ideas' => 'required'
