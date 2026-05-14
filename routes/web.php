@@ -16,11 +16,8 @@ Route::get('/ideas', function () {
     ]);
 });
 
-Route::get('/ideas/{id}', function ($id) {
-    dd($id);
-    $idea = Idea::findOrFail($id);
-
-    return view('ideas', [
+Route::get('/ideas/{idea}', function (Idea $idea) {
+      return view('ideas', [
         'idea' => $idea,
     ]);
 });
