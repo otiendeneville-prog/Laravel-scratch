@@ -34,6 +34,11 @@ Route::post('/ideas', function () {
         'ideas' => 'required'
     ]);
 
+Route::delete('/ideas/{idea}', function (idea $idea) {
+    $idea->delete();
+    return redirect ('/ideas');
+});
+
     Idea::truncate();
 
     Idea::create([
