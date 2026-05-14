@@ -17,7 +17,11 @@
    </div>
    <div class="mt-6 flex items-center gap-x-6">
       <button type="submit" class="rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Delete</button>
-      <form action="/idea/{{$idea->id}}" method="POST"></form>
+      <form action="/idea/{{$idea->id}}" method="POST">
+         @csrf
+         @method('DELETE');
+      
+      </form>
    </div>
    <div class="mt-6 text-white">
       @if($ideas -> count())
