@@ -1,8 +1,9 @@
 
 <x-layout>
   
-  <form method="POST" action="/ideas" >
+  <form method="POST" action="/ideas/{{ $idea->id }}" >
    @csrf
+   @method("PATCH")
    <div class="col-span-full">
       <label for="idea" class="block text-sm/6 font-medium text-white">New Idea</label>
       <div class="mt-2">
@@ -17,7 +18,7 @@
    <div class="mt-6 text-white">
       @if($ideas -> count())
       <h2 class="font-bold">Ideas in podcast!</h2>
-      @foreach($ideas as $description)
+      @foreach($ideas as $idea)
          <li class="text-sm">{{$idea->description}}</li>
       @endforeach
       @endif

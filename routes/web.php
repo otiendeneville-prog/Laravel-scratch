@@ -24,7 +24,7 @@ Route::get('/ideas/{idea}', function (Idea $idea) {
 });
 Route::patch('/ideas/{idea}', function (Idea $idea) {
     $idea->update([
-        description => request('description'),
+        $idea => request('description'),
     ]);
     return redirect("/ideas/{$idea->id}");
 });
