@@ -32,9 +32,8 @@ class IdeaController extends Controller
      */
     public function store(Request $request)
     {
-         $request()->validate([
-            'description' =>['required','min:10'],
-
+       
+         request()->validate([
         'ideas'=>'required'
     ]);
     //to prevent sql not null error;
