@@ -24,7 +24,7 @@ class IdeaController extends Controller
      */
     public function create()
     {
-        return view('ideas.create');
+        //
     }
 
     /**
@@ -32,10 +32,11 @@ class IdeaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'description' =>'[required']
-        ]);
-         Idea::create([
+         request()->validate([
+        'ideas'=>'required'
+    ]);
+    //to prevent sql not null error;
+    Idea::create([
     'description'=>request('ideas'),
     'state'=>'pending'
 ]);
@@ -47,7 +48,9 @@ return redirect ('ideas');
      */
     public function show(Idea $idea)
     {
-        //
+         return view('ideas', [
+        'idea' => $idea,
+    ]);
     }
 
     /**
@@ -63,7 +66,7 @@ return redirect ('ideas');
      */
     public function update(Request $request, Idea $idea)
     {
-         $idea->update([
+          $idea->update([
         $idea => request('idea'),
     ]);
     return redirect("/ideas/{$idea->id}");
@@ -74,7 +77,7 @@ return redirect ('ideas');
      */
     public function destroy(Idea $idea)
     {
-        $idea->delete();
+         $idea->delete();
     return redirect ('/ideas');
     }
 }
