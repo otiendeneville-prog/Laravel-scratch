@@ -10,16 +10,8 @@ Route::get('/', function () {
 });
 
 Route::get('/ideas',[IdeaController::class,'Index']);
-//display a single idea;
 Route::get('/ideas/{idea}', [IdeaController::class,'Create']);
-//storing a new idea;
 Route::post('/ideas', [IdeaController::class,'Store']);
-
-
-//update and existing idea;
 Route::patch('/ideas/{idea}',[IdeaController::class,'Index']);
-
-//delete an idea moved outside the
 Route::delete('/ideas/{idea}', [IdeaController::class,'Index']);
-
-   
+Route::delete('ideas',[IdeaController::class,'Index']);
