@@ -71,6 +71,7 @@ return redirect ('ideas');
      */
     public function destroy(Idea $idea)
     {
-        //
+        $idea->delete();
+    return redirect ('/ideas');
     }
 }

@@ -20,9 +20,6 @@ Route::post('/ideas', [IdeaController::class,'Store']);
 Route::patch('/ideas/{idea}',[IdeaController::class,'Index']);
 
 //delete an idea moved outside the
-Route::delete('/ideas/{idea}', function (idea $idea) {
-    $idea->delete();
-    return redirect ('/ideas');
-});
+Route::delete('/ideas/{idea}', [IdeaController::class,'Index']);
 
    
