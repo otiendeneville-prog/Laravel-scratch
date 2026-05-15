@@ -44,7 +44,7 @@
                 @endforeach
             </ul>
         @else
-            <p class="text-gray-400 text-sm">No ideas saved yet.</p>
+        <p>No idea yet create idea:<a href="/ideas.blade.php/">Create a new idea</a></p> 
         @endif
     </div>
 
