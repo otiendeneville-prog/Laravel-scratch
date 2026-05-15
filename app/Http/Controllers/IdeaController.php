@@ -32,7 +32,11 @@ class IdeaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         Idea::create([
+    'description'=>request('ideas'),
+    'state'=>'pending'
+]);
+return redirect ('ideas');
     }
 
     /**

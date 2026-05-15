@@ -13,17 +13,7 @@ Route::get('/ideas',[IdeaController::class,'Index']);
 //display a single idea;
 Route::get('/ideas/{idea}', [IdeaController::class,'Create']);
 //storing a new idea;
-Route::post('/ideas', function(){
-    request()->validate([
-        'ideas'=>'required'
-    ]);
-    //to prevent sql not null error;
-    Idea::create([
-    'description'=>request('ideas'),
-    'state'=>'pending'
-]);
-return redirect ('ideas');
-});
+Route::post('/ideas', [IdeaController::class,'Store']);
 
 
 //update and existing idea;
