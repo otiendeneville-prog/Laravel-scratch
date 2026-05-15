@@ -12,7 +12,11 @@ class IdeaController extends Controller
      */
     public function index()
     {
-        //
+          $ideas =Idea::all();
+   
+    return view('ideas', [
+        'ideas' => $ideas,
+    ]);
     }
 
     /**

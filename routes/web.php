@@ -1,6 +1,7 @@
 
 <?php
 
+use App\Http\Controllers\IdeaController;
 use App\Models\Idea;
 use Illuminate\Support\Facades\Route;
 
@@ -8,13 +9,7 @@ Route::get('/', function () {
     return redirect('/ideas');
 });
 
-Route::get('/ideas', function () {
-    $ideas =Idea::all();
-   
-    return view('ideas', [
-        'ideas' => $ideas,
-    ]);
-});
+Route::get('/ideas',[IdeaController::class,'Index']);
 //display a single idea;
 Route::get('/ideas/{idea}', function (Idea $idea) {
       return view('ideas', [
