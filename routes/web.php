@@ -11,11 +11,7 @@ Route::get('/', function () {
 
 Route::get('/ideas',[IdeaController::class,'Index']);
 //display a single idea;
-Route::get('/ideas/{idea}', function (Idea $idea) {
-      return view('ideas', [
-        'idea' => $idea,
-    ]);
-});
+Route::get('/ideas/{idea}', [IdeaController::class,'Create']);
 //storing a new idea;
 Route::post('/ideas', function(){
     request()->validate([
