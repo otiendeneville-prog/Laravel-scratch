@@ -18,7 +18,7 @@
                     class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-400">
                     Save Idea
                 </button>
-                <p>No idea yet create idea:<a href="/ideas.blade.php/">Create a new idea</a></p>
+                <p>No idea yet create idea:<a href="/ideas/create">Create a new idea</a></p>
             </div>
         </form>
     </div>
