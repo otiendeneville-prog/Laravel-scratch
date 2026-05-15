@@ -31,7 +31,6 @@
                             <!-- Link to take user to the specific edit page -->
                             <a href="/ideas/{{ $singleIdea->id }}" class="text-xs text-indigo-400 hover:underline">Edit details</a>
                         </div>
-
                         <!-- INDEPENDENT DELETE FORM -->
                         <form action="/ideas/{{ $singleIdea->id }}" method="POST" onsubmit="return confirm('Are you sure?');">
                            @csrf
@@ -44,7 +43,6 @@
                 @endforeach
             </ul>
         @else
-        <p>No idea yet create idea:<a href="/ideas.blade.php/">Create a new idea</a></p> 
         @endif
     </div>
 
