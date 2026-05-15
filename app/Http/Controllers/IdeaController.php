@@ -32,6 +32,7 @@ class IdeaController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
          request()->validate([
         'ideas'=>'required'
     ]);
