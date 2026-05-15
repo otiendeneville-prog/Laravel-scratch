@@ -60,7 +60,10 @@ return redirect ('ideas');
      */
     public function update(Request $request, Idea $idea)
     {
-        //
+         $idea->update([
+        $idea => request('idea'),
+    ]);
+    return redirect("/ideas/{$idea->id}");
     }
 
     /**

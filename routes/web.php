@@ -17,12 +17,7 @@ Route::post('/ideas', [IdeaController::class,'Store']);
 
 
 //update and existing idea;
-Route::patch('/ideas/{idea}', function (Idea $idea) {
-    $idea->update([
-        $idea => request('idea'),
-    ]);
-    return redirect("/ideas/{$idea->id}");
-});
+Route::patch('/ideas/{idea}',[IdeaController::class,'Index']);
 
 //delete an idea moved outside the
 Route::delete('/ideas/{idea}', function (idea $idea) {
