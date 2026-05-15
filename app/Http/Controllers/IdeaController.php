@@ -32,6 +32,9 @@ class IdeaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'description' =>'[required']
+        ]);
          Idea::create([
     'description'=>request('ideas'),
     'state'=>'pending'
