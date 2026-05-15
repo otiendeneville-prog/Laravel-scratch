@@ -58,7 +58,11 @@ return redirect ('ideas');
      */
     public function edit(Idea $idea)
     {
-        //
+        // $idea->edit([
+        //     $idea=>request('idea'),
+        // ]);
+        // return view('idea.edit',compact('idea'));
+           return view('ideas.edit');
     }
 
     /**

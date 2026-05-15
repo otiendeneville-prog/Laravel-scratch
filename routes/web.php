@@ -18,8 +18,11 @@ Route::post('/ideas', [IdeaController::class,'store']);
 
 //update and existing idea;
 Route::patch('/ideas/{idea}', [IdeaController::class,'update']);
+//edit
+Route::get('idea/{idea}',[IdeaController::class,'edit']);
 
 //delete an idea moved outside the
 Route::delete('/ideas/{idea}', [IdeaController::class,'destroy']);
+
 
    

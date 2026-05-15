@@ -21,7 +21,9 @@
 
     <!-- 2. LISTING ALL IDEAS & ACTIONS -->
     <div class="mt-10 text-white">
-        @if($ideas->count())
+        {{-- @if($ideas->count()) --}}
+        @if(isset($ideas) && $ideas->count())
+
             <h2 class="font-bold text-lg mb-4">Ideas in podcast!</h2>
             <ul class="space-y-4">
                 @foreach($ideas as $singleIdea)
